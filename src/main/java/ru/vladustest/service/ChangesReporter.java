@@ -13,5 +13,8 @@ public class ChangesReporter {
         System.out.println("Исчезли следующие страницы: " + inspector.getDeleted());
         System.out.println("Появились следующие новые страницы: " + inspector.getCreated());
         System.out.println("Изменились следующие страницы: " + inspector.getUpdated());
+        System.out.println("\nС уважением,\n" +
+                "автоматизированная система\n" +
+                "мониторинга.");
     }
 }

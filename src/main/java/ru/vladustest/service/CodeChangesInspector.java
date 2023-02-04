@@ -19,7 +19,7 @@ public class CodeChangesInspector implements ChangesInspector {
 
     @Override
     public Set<String> getCreated() {
-        Set<String> created = new HashSet<String>(currentStateKeys);
+        Set<String> created = new HashSet<>(currentStateKeys);
         created.removeAll(previousStateKeys);
         return created;
     }
@@ -41,7 +41,7 @@ public class CodeChangesInspector implements ChangesInspector {
 
     @Override
     public Set<String> getDeleted() {
-        Set<String> deleted = new HashSet<String>(previousStateKeys);
+        Set<String> deleted = new HashSet<>(previousStateKeys);
         deleted.removeAll(currentStateKeys);
         return deleted;
     }
