@@ -7,14 +7,14 @@ import java.util.Set;
 public class CodeChangesInspector implements ChangesInspector {
     private HashMap<String, String> previousState;
     private HashMap<String, String> currentState;
-    Set<String> previousStateKeys;
-    Set<String> currentStateKeys;
+    private Set<String> previousStateKeys;
+    private Set<String> currentStateKeys;
 
     public CodeChangesInspector(HashMap<String, String> previousState, HashMap<String, String> currentState) {
         this.previousState = previousState;
         this.currentState = currentState;
-        previousStateKeys = previousState.keySet();
-        currentStateKeys = currentState.keySet();
+        this.previousStateKeys = previousState.keySet();
+        this.currentStateKeys = currentState.keySet();
     }
 
     @Override
@@ -27,7 +27,7 @@ public class CodeChangesInspector implements ChangesInspector {
     @Override
     public Set<String> getUpdated() {
         Set<String> updated = new HashSet<>();
-        for (String previousStateKey : previousState.keySet()) {
+        for (String previousStateKey : previousStateKeys) {
             String previousStateCode = previousState.get(previousStateKey);
             String currentStateCode = currentState.get(previousStateKey);
             if (currentStateCode != null){
